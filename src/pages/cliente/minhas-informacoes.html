@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Minhas Informações</h1>
+    <div id="informacoesCliente">
+      <!-- As informações do cliente serão exibidas aqui -->
+    </div>
+
+    <script>
+      async function getCliente() {
+        const clienteId = 1; /* ID do cliente logado */
+        const response = await fetch(
+          `http://localhost:8080/liv-api/domain/cliente/${clienteId}`
+        );
+        const cliente = await response.json();
+
+        const informacoesDiv = document.getElementById("informacoesCliente");
+        informacoesDiv.innerHTML = `
+              <p>CPF: ${cliente.cpf}</p>
+              <p>RG: ${cliente.rg}</p>
+              <p>Data de Nascimento: ${cliente.nascimento}</p>
+              <h3>Endereço</h3>
+              <p>CEP: ${cliente.endereco.cep}</p>
+              <p>Logradouro: ${cliente.endereco.logradouro}</p>
+              <p>Complemento: ${cliente.endereco.complemento}</p>
+              <p>Bairro: ${cliente.endereco.bairro}</p>
+              <p>Cidade: ${cliente.endereco.cidade}</p>
+          `;
+      }
+
+      getCliente(); // Chama a função para carregar as informações do cliente
+    </script>
+  </body>
+</html>

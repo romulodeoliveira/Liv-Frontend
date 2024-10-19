@@ -1,1 +1,23 @@
-/* Nav Bar style */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #08024c;
+}
+
+nav ul {
+  list-style: none; /* Remove os marcadores padrão da lista */
+  display: flex; /* Define os itens em linha */
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin-right: 20px; /* Espaçamento entre os itens */
+}
+
+nav a {
+  color: #ffcb09;
+  margin: 1rem;
+  padding: 0.5rem;
+}
